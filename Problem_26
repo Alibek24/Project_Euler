@@ -1,0 +1,37 @@
+from decimal import *
+getcontext().prec = 100
+#print (Decimal(1)/Decimal(71))
+
+def textmaker(n):
+	txt = []
+	for i in range(2, n):
+		k = Decimal(1) / Decimal(i)
+		t = str(k)
+		txt.append(t[2:])
+	return txt
+
+def deleteAllNon100(lst):
+	res = []
+	for i in lst:
+		if len(i) > 80:
+			res.append(i)
+	return res
+
+def deleteAllOnePeriodic(lst):
+	res = []
+	for i in lst:
+		k = 0
+		for j in range(99):
+			if i[j] == i[j + 1]:
+				k += 1
+		if k < 80:
+			res.append(i)
+	return res
+
+def findLongestPattern(lst):
+	for i in lst:
+		for j in range(len(i)):
+			
+
+print (deleteAllNon100(textmaker(101)))
+print (deleteAllOnePeriodic(deleteAllNon100(textmaker(101))))
